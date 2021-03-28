@@ -1,16 +1,9 @@
-
-
 let displayImage=document.querySelector(".gallery__image--display");
 let allImages=Array.from(document.getElementsByClassName("gallery__image--others"));
 let coverMain=Array.from(document.getElementsByClassName("cover-main"))
 
-// let imageArray=[...allImages]
 
-
-
-
-// coverMain.forEach(el=>console.log(el.classList[1]=="active"))
-
+// SLIDER FUNCTION
 function sliderFn(){
     let nextCover;
     const current=coverMain.find(el=>el.classList[1]=="active");
@@ -28,9 +21,12 @@ function sliderFn(){
     displayImage.src=nextCover.nextElementSibling.src
 }
 
+
+// START INTERVAL
 let slider=setInterval(sliderFn,5000);
 
-// Click one of the images
+
+// CLICK IMAGE
 for(oneImage of allImages){
     oneImage.addEventListener("click",function(){
         clearInterval(slider)
@@ -45,16 +41,3 @@ for(oneImage of allImages){
 
 
 
-
-
-
-/*
-Algorithm
-For every five second check which image is active
-Get the position of the current active image
-Get the position of the next image
-Make the next image active
-Display the next image to the big display image 
-
-
-*/
